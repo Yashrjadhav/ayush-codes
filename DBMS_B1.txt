@@ -1,0 +1,999 @@
+Name : Ayush Acharya
+Class : TE 1 Q Batch
+Roll No. : 35
+-----------------------------------------------------------------------------------------------------------------------------------test> use Empdb
+switched to db Empdb
+Empdb>db.createCollection("Employee")
+{ ok: 1 }
+Empdb>
+db.Employee.insertOne({EmpID:01,Name:{FName:"Ayush",LName:"Acharya"},Compan
+y_Name:"Google Inc.",Salary:100000,Designation:"Front End Developer",age:
+21,Expertise:["Java","Python","C++"],DOB:"28-10-2023",Email_ID:"ayush@gmail
+.com",Contact:"8521430479",Address:{City:"Pune",PinCode:"411019"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2a3c1c5b1ab1c65cd5bf")
+}
+Empdb>
+db.Employee.insertOne({EmpID:02,Name:{FName:"Kaustubh",LName:"Warade"},Comp
+any_Name:"TCS",Salary:70000,Designation:"Application Developer",age:
+20,Expertise:["C","Python","C++"],DOB:"09-10-2023",Email_ID:"kaust@gmail.co
+m",Contact:"7481430479",Address:{City:"Pune",PinCode:"411038"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2aae1c5b1ab1c65cd5c0")
+}
+Empdb>
+db.Employee.insertOne({EmpID:03,Name:{FName:"Omkar",LName:"Latpate"},Compan
+y_Name:"Wipro",Salary:80000,Designation:"Database Manager",age:
+30,Expertise:["MySQL","Oracle
+DB","MongoDB"],DOB:"12-12-2023",Email_ID:"omkar@gmail.com",Contact:"7362015
+488",Address:{City:"Pune",PinCode:"411001"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2b221c5b1ab1c65cd5c1")
+}
+Empdb>
+db.Employee.insertOne({EmpID:04,Name:{FName:"Ashish",LName:"Shisal"},Compan
+y_Name:"Infosys",Salary:50000,Designation:"Software Developer", age:
+25,Expertise:["Python","C++"],DOB:"28-12-2023",Email_ID:"ashish@gmail.com",
+Contact:"8569215488",Address:{City:"Pune",PinCode:"411001"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2b861c5b1ab1c65cd5c2")
+
+}
+Empdb>
+db.Employee.insertOne({EmpID:05,Name:{FName:"Saurabh",LName:"Butale"},Compa
+ny_Name:"Bharat Infotech",Salary:80000,Designation:"WWeb Development",age:
+22,Expertise:["PHP","HTML"],DOB:"22-10-2023",Email_ID:"saurabh@gmail.com",C
+ontact:"8888854712",Address:{City:"Pune",PinCode:"411005"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2be71c5b1ab1c65cd5c3")
+}
+Empdb>db.Employee.insertOne({EmpID:06,Name:{FName:"Akshay",LName:"Kelkar"},
+Company_Name:"SKF",Salary:100000,Designation:"Programmer",age:
+31,Expertise:["C#","C"],DOB:"05-01-2023",Email_ID:"akshay@gmail.com",Contac
+t:"7774122258",Address:{City:"PCMC",PinCode:"411019"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2c8f1c5b1ab1c65cd5c4")
+}
+Empdb>
+db.Employee.insertOne({EmpID:07,Name:{FName:"Sampada",LName:"Aghav"},Compan
+y_Name:"Infosys",Salary:80000,Designation:"Programmer",age:22,Expertise:["P
+ython","C++","MySQL"],DOB:"20-11-2023",Email_ID:"sampada@gmail.com",Contact
+:"855622258",Address:{City:"PCMC",PinCode:"411019"}})
+{
+acknowledged: true,
+insertedId: ObjectId("653d2f371c5b1ab1c65cd5c5")
+}
+Empdb>
+db.Employee.insertOne({EmpID:08,Name:{FName:"Aishwarya",LName:"Acharya"},Co
+mpany_Name:"Infosys",Salary:200000,Designation:"Back End
+Developer",Expertise:["MongoDB","MySQL","Cassandra"],DOB:"10-12-2023",Email
+_ID:"aish@gmail.com",Contact:"9992221111",Address:{City:"PCMC",PinCode:"411
+019"},age:25})
+{
+acknowledged: true,
+insertedId: ObjectId("653d30201c5b1ab1c65cd5c6")
+}
+Empdb>
+db.Employee.insertOne({EmpID:09,Name:{FName:"Apurva",LName:"Acharya"},Compa
+ny_Name:"Infosys",Salary:200000,Designation:"Back End
+Developer",Expertise:["MongoDB","MySQL","Cassandra"],DOB:"10-01-2023",Email
+_ID:"ap@gmail.com",Contact:"9992224444",Address:{City:"Pune",PinCode:"41100
+1"},age:24})
+{
+acknowledged: true,
+insertedId: ObjectId("653d30781c5b1ab1c65cd5c7")
+
+}
+Empdb>
+db.Employee.insertOne({EmpID:10,Name:{FName:"Raghav",LName:"Acharya"},Compa
+ny_Name:"Infosys",Salary:200000,Designation:"Back End
+Developer",Expertise:["MongoDB","MySQL","Cassandra"],DOB:"10-07-2023",Email
+_ID:"raghav@gmail.com",Contact:"9998884444",Address:{City:"Pune",PinCode:"4
+11001"},age:20})
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------Query:------------------------------------------------------------------------------------------------------------------------------------------------------------------------1. Select all documents where the Designation field has the value
+"Programmer" and the value of the salary field is greater than 30000.
+Ans.
+Empdb> db.Employee.find({Designation:"Programmer",Salary:{$gt:30000}})
+[
+{
+_id: ObjectId("653d2c8f1c5b1ab1c65cd5c4"),
+EmpID: 6,
+Name: { FName: 'Akshay', LName: 'Kelkar' },
+Company_Name: 'SKF',
+Salary: 100000,
+Designation: 'Programmer',
+Expertise: [ 'C#', 'C' ],
+DOB: '05-01-2023',
+Email_ID: 'akshay@gmail.com',
+Contact: '7774122258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 31
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+EmpID: 7,
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Company_Name: 'Infosys',
+Salary: 80000,
+Designation: 'Programmer',
+Expertise: [ 'Python', 'C++', 'MySQL' ],
+DOB: '20-11-2023',
+Email_ID: 'sampada@gmail.com',
+Contact: '855622258',
+Address: { City: 'PCMC', PinCode: '411019' },
+
+age: 22
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------2.Creates a new document if no document in the employee collection contains
+{Designation: "Tester", Company_name: "TCS", Age: 25}
+Empdb>
+db.Employee.updateOne({Designation:"Tester",Company_Name:"TCS",age:25},{$se
+t:{EmpID:11,Name:"Parth
+Deasi",Salary:85000,Expertise:["Python","Java"],DOB:"09-10-2023",Email_ID:"
+parth@gmail.com",Contact:"8547458741",Address:{City:"Pune",PinCode:"411001"
+}}},{upsert:true})
+{
+acknowledged: true,
+insertedId: ObjectId("653d36a2748d2d48dc448fc0"),
+matchedCount: 0,
+modifiedCount: 0,
+upsertedCount: 1
+}
+Empdb> db.Employee.find().pretty()
+[
+{
+_id: ObjectId("653d2a3c1c5b1ab1c65cd5bf"),
+EmpID: 1,
+Name: { FName: 'Ayush', LName: 'Acharya' },
+Company_Name: 'Google Inc.',
+Salary: 100000,
+Designation: 'Front End Developer',
+Expertise: [ 'Java', 'Python', 'C++' ],
+DOB: '28-10-2023',
+Email_ID: 'ayush@gmail.com',
+Contact: '8521430479',
+Address: { City: 'Pune', PinCode: '411019' },
+age: 21
+},
+{
+_id: ObjectId("653d2aae1c5b1ab1c65cd5c0"),
+EmpID: 2,
+Name: { FName: 'Kaustubh', LName: 'Warade' },
+Company_Name: 'TCS',
+Salary: 70000,
+Designation: 'Application Developer',
+Expertise: [ 'C', 'Python', 'C++' ],
+DOB: '09-10-2023',
+
+Email_ID: 'kaust@gmail.com',
+Contact: '7481430479',
+Address: { City: 'Pune', PinCode: '411038' },
+age: 20
+},
+{
+_id: ObjectId("653d2b221c5b1ab1c65cd5c1"),
+EmpID: 3,
+Name: { FName: 'Omkar', LName: 'Latpate' },
+Company_Name: 'Wipro',
+Salary: 80000,
+Designation: 'Database Manager',
+Expertise: [ 'MySQL', 'Oracle DB', 'MongoDB' ],
+DOB: '12-12-2023',
+Email_ID: 'omkar@gmail.com',
+Contact: '7362015488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 30
+},
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+EmpID: 4,
+Name: { FName: 'Ashish', LName: 'Shisal' },
+Company_Name: 'Infosys',
+Salary: 50000,
+Designation: 'Software Developer',
+Expertise: [ 'Python', 'C++' ],
+DOB: '28-12-2023',
+Email_ID: 'ashish@gmail.com',
+Contact: '8569215488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 25
+},
+{
+_id: ObjectId("653d2be71c5b1ab1c65cd5c3"),
+EmpID: 5,
+Name: { FName: 'Saurabh', LName: 'Butale' },
+Company_Name: 'Bharat Infotech',
+Salary: 80000,
+Designation: 'WWeb Development',
+Expertise: [ 'PHP', 'HTML' ],
+DOB: '22-10-2023',
+Email_ID: 'saurabh@gmail.com',
+Contact: '8888854712',
+Address: { City: 'Pune', PinCode: '411005' },
+age: 22
+
+},
+{
+_id: ObjectId("653d2c8f1c5b1ab1c65cd5c4"),
+EmpID: 6,
+Name: { FName: 'Akshay', LName: 'Kelkar' },
+Company_Name: 'SKF',
+Salary: 100000,
+Designation: 'Programmer',
+Expertise: [ 'C#', 'C' ],
+DOB: '05-01-2023',
+Email_ID: 'akshay@gmail.com',
+Contact: '7774122258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 31
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+EmpID: 7,
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Company_Name: 'Infosys',
+Salary: 80000,
+Designation: 'Programmer',
+Expertise: [ 'Python', 'C++', 'MySQL' ],
+DOB: '20-11-2023',
+Email_ID: 'sampada@gmail.com',
+Contact: '855622258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 22
+},
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+EmpID: 8,
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-12-2023',
+Email_ID: 'aish@gmail.com',
+Contact: '9992221111',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 20
+},
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 85000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------3.Selects all documents in the collection where the field age has a value
+less than 30 or the value of the salary field is greater than 40000.
+Empdb> db.Employee.find({$or:[{age:{$lt:30}},{Salary:{$gt:40000}}]})
+
+[
+{
+_id: ObjectId("653d2a3c1c5b1ab1c65cd5bf"),
+EmpID: 1,
+Name: { FName: 'Ayush', LName: 'Acharya' },
+Company_Name: 'Google Inc.',
+Salary: 100000,
+Designation: 'Front End Developer',
+Expertise: [ 'Java', 'Python', 'C++' ],
+DOB: '28-10-2023',
+Email_ID: 'ayush@gmail.com',
+Contact: '8521430479',
+Address: { City: 'Pune', PinCode: '411019' },
+age: 21
+},
+{
+_id: ObjectId("653d2aae1c5b1ab1c65cd5c0"),
+EmpID: 2,
+Name: { FName: 'Kaustubh', LName: 'Warade' },
+Company_Name: 'TCS',
+Salary: 70000,
+Designation: 'Application Developer',
+Expertise: [ 'C', 'Python', 'C++' ],
+DOB: '09-10-2023',
+Email_ID: 'kaust@gmail.com',
+Contact: '7481430479',
+Address: { City: 'Pune', PinCode: '411038' },
+age: 20
+},
+{
+_id: ObjectId("653d2b221c5b1ab1c65cd5c1"),
+EmpID: 3,
+Name: { FName: 'Omkar', LName: 'Latpate' },
+Company_Name: 'Wipro',
+Salary: 80000,
+Designation: 'Database Manager',
+Expertise: [ 'MySQL', 'Oracle DB', 'MongoDB' ],
+DOB: '12-12-2023',
+Email_ID: 'omkar@gmail.com',
+Contact: '7362015488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 30
+},
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+EmpID: 4,
+
+Name: { FName: 'Ashish', LName: 'Shisal' },
+Company_Name: 'Infosys',
+Salary: 50000,
+Designation: 'Software Developer',
+Expertise: [ 'Python', 'C++' ],
+DOB: '28-12-2023',
+Email_ID: 'ashish@gmail.com',
+Contact: '8569215488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 25
+},
+{
+_id: ObjectId("653d2be71c5b1ab1c65cd5c3"),
+EmpID: 5,
+Name: { FName: 'Saurabh', LName: 'Butale' },
+Company_Name: 'Bharat Infotech',
+Salary: 80000,
+Designation: 'WWeb Development',
+Expertise: [ 'PHP', 'HTML' ],
+DOB: '22-10-2023',
+Email_ID: 'saurabh@gmail.com',
+Contact: '8888854712',
+Address: { City: 'Pune', PinCode: '411005' },
+age: 22
+},
+{
+_id: ObjectId("653d2c8f1c5b1ab1c65cd5c4"),
+EmpID: 6,
+Name: { FName: 'Akshay', LName: 'Kelkar' },
+Company_Name: 'SKF',
+Salary: 100000,
+Designation: 'Programmer',
+Expertise: [ 'C#', 'C' ],
+DOB: '05-01-2023',
+Email_ID: 'akshay@gmail.com',
+Contact: '7774122258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 31
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+EmpID: 7,
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Company_Name: 'Infosys',
+Salary: 80000,
+Designation: 'Programmer',
+
+Expertise: [ 'Python', 'C++', 'MySQL' ],
+DOB: '20-11-2023',
+Email_ID: 'sampada@gmail.com',
+Contact: '855622258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 22
+},
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+EmpID: 8,
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-12-2023',
+Email_ID: 'aish@gmail.com',
+Contact: '9992221111',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+
+Address: { City: 'Pune', PinCode: '411001' },
+age: 20
+},
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 85000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------4.Matches all documents where the value of the field Address is an embedded
+document that contains only the field city with the value "Pune" and the
+field Pin_code with the value "411001".
+Empdb> db.Employee.find({"Address.City":"Pune","Address.PinCode":"411001"})
+[
+{
+_id: ObjectId("653d2b221c5b1ab1c65cd5c1"),
+EmpID: 3,
+Name: { FName: 'Omkar', LName: 'Latpate' },
+Company_Name: 'Wipro',
+Salary: 80000,
+Designation: 'Database Manager',
+Expertise: [ 'MySQL', 'Oracle DB', 'MongoDB' ],
+DOB: '12-12-2023',
+Email_ID: 'omkar@gmail.com',
+Contact: '7362015488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 30
+},
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+EmpID: 4,
+Name: { FName: 'Ashish', LName: 'Shisal' },
+Company_Name: 'Infosys',
+Salary: 50000,
+
+Designation: 'Software Developer',
+Expertise: [ 'Python', 'C++' ],
+DOB: '28-12-2023',
+Email_ID: 'ashish@gmail.com',
+Contact: '8569215488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 20
+},
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 85000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------5.Finds all documents with Company_name: "TCS" and modifies their salary
+field by 2000.
+Empdb> db.Employee.updateMany(
+... { Company_Name: "TCS" },
+... { $inc: { Salary: 2000 } }
+... )
+{
+acknowledged: true,
+insertedId: null,
+matchedCount: 2,
+modifiedCount: 2,
+upsertedCount: 0
+}
+Empdb> db.Employee.find().pretty()
+[
+{
+_id: ObjectId("653d2a3c1c5b1ab1c65cd5bf"),
+EmpID: 1,
+Name: { FName: 'Ayush', LName: 'Acharya' },
+Company_Name: 'Google Inc.',
+Salary: 100000,
+Designation: 'Front End Developer',
+Expertise: [ 'Java', 'Python', 'C++' ],
+DOB: '28-10-2023',
+Email_ID: 'ayush@gmail.com',
+Contact: '8521430479',
+Address: { City: 'Pune', PinCode: '411019' },
+age: 21
+},
+{
+_id: ObjectId("653d2aae1c5b1ab1c65cd5c0"),
+EmpID: 2,
+Name: { FName: 'Kaustubh', LName: 'Warade' },
+Company_Name: 'TCS',
+Salary: 72000,
+Designation: 'Application Developer',
+Expertise: [ 'C', 'Python', 'C++' ],
+DOB: '09-10-2023',
+
+Email_ID: 'kaust@gmail.com',
+Contact: '7481430479',
+Address: { City: 'Pune', PinCode: '411038' },
+age: 20
+},
+{
+_id: ObjectId("653d2b221c5b1ab1c65cd5c1"),
+EmpID: 3,
+Name: { FName: 'Omkar', LName: 'Latpate' },
+Company_Name: 'Wipro',
+Salary: 80000,
+Designation: 'Database Manager',
+Expertise: [ 'MySQL', 'Oracle DB', 'MongoDB' ],
+DOB: '12-12-2023',
+Email_ID: 'omkar@gmail.com',
+Contact: '7362015488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 30
+},
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+EmpID: 4,
+Name: { FName: 'Ashish', LName: 'Shisal' },
+Company_Name: 'Infosys',
+Salary: 50000,
+Designation: 'Software Developer',
+Expertise: [ 'Python', 'C++' ],
+DOB: '28-12-2023',
+Email_ID: 'ashish@gmail.com',
+Contact: '8569215488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 25
+},
+{
+_id: ObjectId("653d2be71c5b1ab1c65cd5c3"),
+EmpID: 5,
+Name: { FName: 'Saurabh', LName: 'Butale' },
+Company_Name: 'Bharat Infotech',
+Salary: 80000,
+Designation: 'WWeb Development',
+Expertise: [ 'PHP', 'HTML' ],
+DOB: '22-10-2023',
+Email_ID: 'saurabh@gmail.com',
+Contact: '8888854712',
+Address: { City: 'Pune', PinCode: '411005' },
+age: 22
+
+},
+{
+_id: ObjectId("653d2c8f1c5b1ab1c65cd5c4"),
+EmpID: 6,
+Name: { FName: 'Akshay', LName: 'Kelkar' },
+Company_Name: 'SKF',
+Salary: 100000,
+Designation: 'Programmer',
+Expertise: [ 'C#', 'C' ],
+DOB: '05-01-2023',
+Email_ID: 'akshay@gmail.com',
+Contact: '7774122258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 31
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+EmpID: 7,
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Company_Name: 'Infosys',
+Salary: 80000,
+Designation: 'Programmer',
+Expertise: [ 'Python', 'C++', 'MySQL' ],
+DOB: '20-11-2023',
+Email_ID: 'sampada@gmail.com',
+Contact: '855622258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 22
+},
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+EmpID: 8,
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-12-2023',
+Email_ID: 'aish@gmail.com',
+Contact: '9992221111',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 20
+},
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 87000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------6. Find documents where Designation is not equal to "Developer"
+Empdb> db.Employee.find({Designation:{$ne :"Developer"}})
+[
+
+{
+_id: ObjectId("653d2a3c1c5b1ab1c65cd5bf"),
+EmpID: 1,
+Name: { FName: 'Ayush', LName: 'Acharya' },
+Company_Name: 'Google Inc.',
+Salary: 100000,
+Designation: 'Front End Developer',
+Expertise: [ 'Java', 'Python', 'C++' ],
+DOB: '28-10-2023',
+Email_ID: 'ayush@gmail.com',
+Contact: '8521430479',
+Address: { City: 'Pune', PinCode: '411019' },
+age: 21
+},
+{
+_id: ObjectId("653d2aae1c5b1ab1c65cd5c0"),
+EmpID: 2,
+Name: { FName: 'Kaustubh', LName: 'Warade' },
+Company_Name: 'TCS',
+Salary: 72000,
+Designation: 'Application Developer',
+Expertise: [ 'C', 'Python', 'C++' ],
+DOB: '09-10-2023',
+Email_ID: 'kaust@gmail.com',
+Contact: '7481430479',
+Address: { City: 'Pune', PinCode: '411038' },
+age: 20
+},
+{
+_id: ObjectId("653d2b221c5b1ab1c65cd5c1"),
+EmpID: 3,
+Name: { FName: 'Omkar', LName: 'Latpate' },
+Company_Name: 'Wipro',
+Salary: 80000,
+Designation: 'Database Manager',
+Expertise: [ 'MySQL', 'Oracle DB', 'MongoDB' ],
+DOB: '12-12-2023',
+Email_ID: 'omkar@gmail.com',
+Contact: '7362015488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 30
+},
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+EmpID: 4,
+Name: { FName: 'Ashish', LName: 'Shisal' },
+
+Company_Name: 'Infosys',
+Salary: 50000,
+Designation: 'Software Developer',
+Expertise: [ 'Python', 'C++' ],
+DOB: '28-12-2023',
+Email_ID: 'ashish@gmail.com',
+Contact: '8569215488',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 25
+},
+{
+_id: ObjectId("653d2be71c5b1ab1c65cd5c3"),
+EmpID: 5,
+Name: { FName: 'Saurabh', LName: 'Butale' },
+Company_Name: 'Bharat Infotech',
+Salary: 80000,
+Designation: 'WWeb Development',
+Expertise: [ 'PHP', 'HTML' ],
+DOB: '22-10-2023',
+Email_ID: 'saurabh@gmail.com',
+Contact: '8888854712',
+Address: { City: 'Pune', PinCode: '411005' },
+age: 22
+},
+{
+_id: ObjectId("653d2c8f1c5b1ab1c65cd5c4"),
+EmpID: 6,
+Name: { FName: 'Akshay', LName: 'Kelkar' },
+Company_Name: 'SKF',
+Salary: 100000,
+Designation: 'Programmer',
+Expertise: [ 'C#', 'C' ],
+DOB: '05-01-2023',
+Email_ID: 'akshay@gmail.com',
+Contact: '7774122258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 31
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+EmpID: 7,
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Company_Name: 'Infosys',
+Salary: 80000,
+Designation: 'Programmer',
+Expertise: [ 'Python', 'C++', 'MySQL' ],
+
+DOB: '20-11-2023',
+Email_ID: 'sampada@gmail.com',
+Contact: '855622258',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 22
+},
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+EmpID: 8,
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-12-2023',
+Email_ID: 'aish@gmail.com',
+Contact: '9992221111',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+Address: { City: 'Pune', PinCode: '411001' },
+
+age: 20
+},
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 87000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------7. Find _id, Designation, Address and Name from all documents where
+Company_name is "Infosys".
+Empdb>
+db.Employee.find({Company_Name:"Infosys"},{_id:1,Designation:1,Address:1,Na
+me:1})
+[
+{
+_id: ObjectId("653d2b861c5b1ab1c65cd5c2"),
+Name: { FName: 'Ashish', LName: 'Shisal' },
+Designation: 'Software Developer',
+Address: { City: 'Pune', PinCode: '411001' }
+},
+{
+_id: ObjectId("653d2f371c5b1ab1c65cd5c5"),
+Name: { FName: 'Sampada', LName: 'Aghav' },
+Designation: 'Programmer',
+Address: { City: 'PCMC', PinCode: '411019' }
+},
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Designation: 'Back End Developer',
+Address: { City: 'PCMC', PinCode: '411019' }
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Designation: 'Back End Developer',
+Address: { City: 'Pune', PinCode: '411001' }
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Designation: 'Back End Developer',
+Address: { City: 'Pune', PinCode: '411001' }
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------8. Selects all documents in the employee collection where the value of the
+Designation is either "Developer" or "Tester".
+Empdb> db.Employee.find({Designation:{$in:["Developer","Tester"]}})
+[
+{
+_id: ObjectId("653d36a2748d2d48dc448fc0"),
+Company_Name: 'TCS',
+Designation: 'Tester',
+age: 25,
+Address: { City: 'Pune', PinCode: '411001' },
+Contact: '8547458741',
+DOB: '09-10-2023',
+Email_ID: 'parth@gmail.com',
+EmpID: 11,
+Expertise: [ 'Python', 'Java' ],
+Name: 'Parth Deasi',
+Salary: 87000
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------9. . Find all document with Exact Match on an Array having Expertise:
+['Mongodb','Mysql', 'Cassandra']
+Empdb> db.Employee.find({Expertise :{$eq:
+["MongoDB","MySQL","Cassandra"]}})
+[
+{
+_id: ObjectId("653d30201c5b1ab1c65cd5c6"),
+EmpID: 8,
+Name: { FName: 'Aishwarya', LName: 'Acharya' },
+Company_Name: 'Infosys',
+
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-12-2023',
+Email_ID: 'aish@gmail.com',
+Contact: '9992221111',
+Address: { City: 'PCMC', PinCode: '411019' },
+age: 25
+},
+{
+_id: ObjectId("653d30781c5b1ab1c65cd5c7"),
+EmpID: 9,
+Name: { FName: 'Apurva', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-01-2023',
+Email_ID: 'ap@gmail.com',
+Contact: '9992224444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 24
+},
+{
+_id: ObjectId("653d30aa1c5b1ab1c65cd5c8"),
+EmpID: 10,
+Name: { FName: 'Raghav', LName: 'Acharya' },
+Company_Name: 'Infosys',
+Salary: 200000,
+Designation: 'Back End Developer',
+Expertise: [ 'MongoDB', 'MySQL', 'Cassandra' ],
+DOB: '10-07-2023',
+Email_ID: 'raghav@gmail.com',
+Contact: '9998884444',
+Address: { City: 'Pune', PinCode: '411001' },
+age: 20
+}
+]
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------10.Drop Single documents where designation="Developer"
+Empdb> db.Employee.remove({Designation:"Developer"})
+{ acknowledged: true, deletedCount: 0 }
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------
+
+

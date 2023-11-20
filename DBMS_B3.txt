@@ -1,0 +1,137 @@
+Name : Ayush Acharya
+Class : TE 1 Q Batch
+Roll No. : 35
+-----------------------------------------------------------------------------------------------------------------------------------1.Return the Total Salary of per Company
+Empdb> var mapfunc=function() {emit(this.Company_Name,this.Salary);};
+Empdb> var reducefunc=function(key,values) {return Array.sum(values);};
+Empdb> var
+output=db.Employee.mapReduce(mapfunc,reducefunc,{out:"Company_Total_Salary"
+});
+DeprecationWarning: Collection.mapReduce() is deprecated. Use an
+aggregation instead.
+Empdb> db[output.result].find();
+[
+{ _id: 'Infosys', value: 4400000 },
+{ _id: 'Wipro', value: 200000 },
+{ _id: 'Bharat Infotech', value: 80000 },
+{ _id: 'SKF', value: 100000 },
+{ _id: 'Google Inc.', value: 100000 },
+{ _id: 'Sandvik', value: 600000 },
+{ _id: 'TCS', value: 439000 }
+]
+-----------------------------------------------------------------------------------------------------------------------------------2.Return the Total Salary of Company Name:"TCS"
+Empdb> var mapfunc2=function() {emit("TCS",this.Salary);};
+Empdb> var reducefunc2=function(key,values) {return Array.sum(values)}
+Empdb> var
+output2=db.Employee.mapReduce(mapfunc2,reducefunc2,{out:"Total_Salary_TCS"}
+)
+Empdb> db[output2.result].find()
+[ { _id: 'TCS', value: 5919000 } ]
+-----------------------------------------------------------------------------------------------------------------------------------3.Return the Avg Salary of Company whose address is “Pune".
+
+Empdb> db.Employee.mapReduce(
+... function()
+... {
+... if (this.Address.City==="Pune") {
+... emit(this.Company_Name,this.Salary);
+... }
+... },
+... function(key,values) {
+... return Array.avg(values);
+... },
+... {
+... out:"Avg_Salary_Pune"
+... }
+... );
+{ result: 'Avg_Salary_Pune', ok: 1 }
+Empdb> db.Avg_Salary_Pune.find()
+[
+{ _id: 'Bharat Infotech', value: 80000 },
+{ _id: 'Google Inc.', value: 100000 },
+{ _id: 'Infosys', value: 237500 },
+{ _id: 'TCS', value: 79500 },
+{ _id: 'Wipro', value: 80000 }
+]
+-----------------------------------------------------------------------------------------------------------------------------------4.Return the Total Salary for each Designation of Infosys.
+Empdb> db.Employee.mapReduce(
+... function() {
+... if (this.Company_Name==="Infosys") {
+... emit(this.Designation,this.Salary);
+... } },
+... function(key,values) {
+... return Array.sum(values);
+... },
+... {
+... query: {Company_Name:"Infosys"},
+... out: "Infosys_Total_Sal"
+... } );
+{ result: 'Infosys_Total_Sal', ok: 1 }
+Empdb> db.Infosys_Total_Sal.find()
+[
+{ _id: 'Programmer', value: 80000 },
+{ _id: 'Back End Developer', value: 600000 },
+{ _id: 'Software Developer', value: 50000 },
+{ _id: 'Tester', value: 280000 },
+
+{ _id: 'DBA', value: 3390000 }
+]
+-----------------------------------------------------------------------------------------------------------------------------------5.Return total count for “City=PCMC”
+db.Employee.mapReduce(
+...
+function () {
+...
+if (this.Address.City === "PCMC") {
+...
+emit("City=PCMC", 1);
+...
+}
+...
+},
+...
+function (key, values) {
+...
+return Array.sum(values);
+...
+},
+...
+{
+...
+out: "total_count_pcmc"
+...
+}
+... );
+{ result: 'total_count_pcmc', ok: 1 }
+Empdb>
+Empdb> db.total_count_pcmc.find();
+[ { _id: 'City=PCMC', value: 4 } ]
+-----------------------------------------------------------------------------------------------------------------------------------6.Return Count for City PCMC and Age greater than 20.
+Empdb> db.Employee.mapReduce(
+.count_pcmc_age_gt_20.find();
+...
+function () {
+...
+if (this.Address.City === "PCMC" && this.age > 20) {
+...
+emit("City=PCMC and Age > 20", 1);
+...
+}
+...
+},
+...
+function (key, values) {
+...
+return Array.sum(values);
+...
+},
+...
+{
+...
+out: "count_pcmc_age_gt_20"
+...
+}
+... );
+{ result: 'count_pcmc_age_gt_20', ok: 1 }
+Empdb> db.count_pcmc_age_gt_20.find()
+[ { _id: 'City=PCMC and Age > 20', value: 4 } ]
+
+
